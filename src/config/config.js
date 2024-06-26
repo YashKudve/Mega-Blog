@@ -84,10 +84,24 @@ export class Service {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug
+        queries
       );
     } catch (error) {
       console.log("Appwrite service:: getPosts:: error", error);
+    }
+  }
+
+  //file upload services
+
+  async fileUpload(file) {
+    try {
+      return await this.bucket.createFile(
+        conf.appwriteBucketId,
+        ID.unique(),
+        file
+      );
+    } catch (error) {
+      console.log("Appwrite Service :: fileUpload :: error", error);
     }
   }
 }
