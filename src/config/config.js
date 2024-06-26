@@ -111,6 +111,10 @@ export class Service {
       console.log("Appwrite Service :: deleteFile :: error", error);
     }
   }
+
+  getFilePreview(fileId) {
+    return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+  }
 }
 
 const service = new Service();
