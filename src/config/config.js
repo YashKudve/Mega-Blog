@@ -67,7 +67,7 @@ export class Service {
 
   async getPost(slug) {
     try {
-      return await this.databases.getDocument(
+      await this.databases.getDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug
@@ -95,13 +95,20 @@ export class Service {
 
   async fileUpload(file) {
     try {
-      return await this.bucket.createFile(
-        conf.appwriteBucketId,
-        ID.unique(),
-        file
-      );
+      await this.bucket.createFile(conf.appwriteBucketId, ID.unique(), file);
+      return true;
     } catch (error) {
       console.log("Appwrite Service :: fileUpload :: error", error);
+      return false;
+    }
+  }
+
+  async deleteFile(fileId) {
+    try {
+      await this.bucket.deleteFile(conf.appwriteBucketId, fileId);
+      return true;
+    } catch (error) {
+      console.log("Appwrite Service :: deleteFile :: error", error);
     }
   }
 }
