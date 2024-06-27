@@ -20,10 +20,10 @@ function App() {
           dispatch(logout());
         }
       })
-      .finally();
+      .finally(() => (setLoading = false));
   }, []);
 
-  return <div>Blog app with appwrite</div>;
+  return !loading ? <div></div> : null;
 }
 
 export default App;
