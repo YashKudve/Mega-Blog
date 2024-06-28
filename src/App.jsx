@@ -7,7 +7,7 @@ function App() {
   // console.log(process.env.REACT_APP_APPWRITE_URL); //this process in create-react-app
   // console.log(import.meta.env.VITE_APPWRITE_URL);
 
-  const [loading, setLoading] = useState(true);
+  let [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function App() {
       .finally(() => (setLoading = false));
   }, []);
 
-  return !loading ? <div></div> : null;
+  return !loading ? <div className="min-h-screen">Test</div> : null;
 }
 
 export default App;
