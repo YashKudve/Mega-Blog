@@ -17,6 +17,28 @@ function PostForm({post}) {
     })
 
     const navigate = useNavigate()
+    const userData = useSelector(state=>state.user.userData)
+
+    const submit = async(data) => {
+        if(post){
+            // TODO: Check --> file Upload or UploadFile
+            const file = data.image[0] ? appwriteService.fileUpload(data.image[0]) : null
+            
+            if(file){
+                appwriteService.deleteFile(post.featuredImage)
+            }
+
+            const dbPost = await appwriteService.updatePost(post.$id,{
+                ...data,
+                featuredImage:file ? file.$id : undefined,
+
+            })
+            
+            if(dbPost){
+                navigate(`/post/${dbPost.$id}`)
+            }
+        }
+    }
   return (
     <div>
       
