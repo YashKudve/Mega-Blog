@@ -12,6 +12,7 @@ import Login from "./Login";
 import Post from "../Post" //TODO: Check this
 import PostForm from "./PostForm";
 import PostCard from "./PostCard";
+import AuthLayout from './AuthLayout'
 
 
-export { Header, Footer, Container,Logo,LogoutBtn, Button, Select, Input,RTE,SignUp, Login, Post, PostCard, PostForm};
+export { Header, Footer, Container,Logo,LogoutBtn, Button, Select, Input,RTE,SignUp, Login, Post, PostCard, PostForm, AuthLayout};
