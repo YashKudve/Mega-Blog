@@ -9,6 +9,9 @@ import Input from "./Input";
 import RTE from "./RTE";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import Post from "../Post" //TODO: Check this
+import PostForm from "./PostForm";
+import PostCard from "./PostCard";
 
 
-export { Header, Footer, Container,Logo,LogoutBtn, Button, Select, Input,RTE,SignUp, Login};
+export { Header, Footer, Container,Logo,LogoutBtn, Button, Select, Input,RTE,SignUp, Login, Post, PostCard, PostForm};
