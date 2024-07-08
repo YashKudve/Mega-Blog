@@ -56,7 +56,7 @@ const SignUpComponent = () => {
             })}
             />
 
-<Input
+      <Input
         label="Email: "
         placeholder="Enter your Email"
         type='email'
